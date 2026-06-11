@@ -1,4 +1,4 @@
-/* --- RESET & GLOBAL VARIABLES --- */
+/* --- RESET & VARIABLES --- */
 * {
     margin: 0;
     padding: 0;
@@ -6,93 +6,144 @@
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     background-color: #f3f4f6;
     color: #1f2937;
     line-height: 1.5;
     padding-bottom: 60px;
 }
 
-/* --- HEADER STYLING --- */
+/* --- HEADER & NAVIGATION --- */
 .main-header {
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     color: white;
-    padding: 40px 20px;
+    padding: 50px 20px;
     text-align: center;
     margin-bottom: 40px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.sub-page-header {
+    padding: 30px 20px;
+}
+
+.back-link {
+    color: #bfdbfe;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 .header-content h1 {
     font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 6px;
 }
 
-.header-content p {
-    color: #bfdbfe;
-    font-size: 1rem;
-}
-
-/* --- GRID LAYOUT --- */
+/* --- LAYOUT CONTAINER CONTEXTS --- */
 .hub-container {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr; /* Default to 1 column on mobile */
-    gap: 30px;
 }
 
-/* If the screen is wider than 768px (like a tablet or PC), switch to 2 columns */
-@media (min-width: 768px) {
-    .hub-container {
+/* Homepage main menu layout */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 640px) {
+    .menu-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-/* --- CARD UNIVERSAL STYLES --- */
+/* Gallery page layout */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 640px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: 900px) {
+        .gallery-grid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+}
+
+.single-column {
+    max-width: 650px;
+}
+
+/* --- INTERACTIVE NAV CARDS (HOMEPAGE) --- */
+.hub-nav-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hub-nav-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hub-nav-card h2 {
+    font-size: 1.4rem;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.hub-nav-card p {
+    color: #4b5563;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.nav-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 9999px;
+}
+.nav-status.warning { background: #fee2e2; color: #b91c1c; }
+.nav-status.info { background: #e0f2fe; color: #0369a1; }
+
+/* --- BILLS STYLING --- */
 .hub-card {
     background: #ffffff;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
-}
-
-.card-header h2 {
-    font-size: 1.4rem;
-    color: #111827;
-}
-
-.section-desc {
-    color: #6b7280;
-    font-size: 0.9rem;
-    margin-bottom: 24px;
-}
-
-/* --- BADGES --- */
-.badge {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 9999px;
-}
-.badge.warning { background-color: #fef3c7; color: #d97706; }
-.badge.info { background-color: #e0f2fe; color: #0369a1; }
-
-/* --- BILLS MODULE --- */
-.bill-list {
-    list-style: none;
-}
+.bill-list { list-style: none; }
 
 .bill-item {
     display: flex;
@@ -105,63 +156,35 @@ body {
     border-left: 4px solid #d1d5db;
 }
 
-.bill-info {
-    display: flex;
-    flex-direction: column;
-}
+.bill-info { display: flex; flex-direction: column; }
+.bill-name { font-weight: 600; color: #374151; }
+.bill-due { font-size: 0.8rem; color: #6b7280; margin-top: 2px; }
+.bill-amount { font-weight: 700; font-size: 1.1rem; color: #111827; }
 
-.bill-name {
-    font-weight: 600;
-    color: #374151;
-}
-
-.bill-due {
-    font-size: 0.8rem;
-    color: #6b7280;
-    margin-top: 2px;
-}
-
-.bill-amount {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #111827;
-}
-
-/* Status variants */
 .bill-item.unpaid { border-left-color: #ef4444; }
 .bill-item.unpaid .bill-due { color: #ef4444; font-weight: 500; }
-
 .bill-item.paid { border-left-color: #10b981; }
 .bill-item.paid .bill-due { color: #10b981; }
 
-/* --- PHOTO MODULE --- */
-.photo-wrapper {
+/* --- PHOTO CARD STYLING --- */
+.photo-card-v2 {
+    background: white;
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     border: 1px solid #e5e7eb;
-    background: #f9fafb;
-    margin-top: auto; /* Pushes photo box to align bottom with the bills card */
 }
 
-.photo-wrapper img {
+.photo-card-v2 img {
     width: 100%;
-    height: 240px;
-    object-fit: cover; /* Keeps image cropped nicely without stretching */
+    height: 200px;
+    object-fit: cover;
     display: block;
 }
 
 .photo-meta {
-    padding: 16px;
-    background: white;
+    padding: 14px;
 }
 
-.photo-meta h3 {
-    font-size: 1.1rem;
-    color: #111827;
-    margin-bottom: 2px;
-}
-
-.photo-meta p {
-    font-size: 0.85rem;
-    color: #6b7280;
-}
+.photo-meta h3 { font-size: 1rem; color: #111827; }
+.photo-meta p { font-size: 0.8rem; color: #6b7280; }
