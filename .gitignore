@@ -1,0 +1,8 @@
+#OS garbage files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+#Future-proofing for your coding journey
+node_modules/
+.env
