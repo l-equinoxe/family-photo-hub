@@ -1,3 +1,4 @@
+/* --- RESET & GLOBAL VARIABLES --- */
 * {
     margin: 0;
     padding: 0;
@@ -5,26 +6,162 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    line-height: 1.6;
-    padding: 40px 20;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    line-height: 1.5;
+    padding-bottom: 60px;
 }
 
-header {
+/* --- HEADER STYLING --- */
+.main-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 40px 20px;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
-    font-size: 2.5rem;
-    color: #2b3a4a;
-    margin-bottom: 10px;
+.header-content h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
-header p {
-    color: #6c757d;
+.header-content p {
+    color: #bfdbfe;
+    font-size: 1rem;
+}
+
+/* --- GRID LAYOUT --- */
+.hub-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column on mobile */
+    gap: 30px;
+}
+
+/* If the screen is wider than 768px (like a tablet or PC), switch to 2 columns */
+@media (min-width: 768px) {
+    .hub-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- CARD UNIVERSAL STYLES --- */
+.hub-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.card-header h2 {
+    font-size: 1.4rem;
+    color: #111827;
+}
+
+.section-desc {
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+/* --- BADGES --- */
+.badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 9999px;
+}
+.badge.warning { background-color: #fef3c7; color: #d97706; }
+.badge.info { background-color: #e0f2fe; color: #0369a1; }
+
+/* --- BILLS MODULE --- */
+.bill-list {
+    list-style: none;
+}
+
+.bill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: #f9fafb;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    border-left: 4px solid #d1d5db;
+}
+
+.bill-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.bill-name {
+    font-weight: 600;
+    color: #374151;
+}
+
+.bill-due {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
+.bill-amount {
+    font-weight: 700;
     font-size: 1.1rem;
+    color: #111827;
 }
 
+/* Status variants */
+.bill-item.unpaid { border-left-color: #ef4444; }
+.bill-item.unpaid .bill-due { color: #ef4444; font-weight: 500; }
+
+.bill-item.paid { border-left-color: #10b981; }
+.bill-item.paid .bill-due { color: #10b981; }
+
+/* --- PHOTO MODULE --- */
+.photo-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    margin-top: auto; /* Pushes photo box to align bottom with the bills card */
+}
+
+.photo-wrapper img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover; /* Keeps image cropped nicely without stretching */
+    display: block;
+}
+
+.photo-meta {
+    padding: 16px;
+    background: white;
+}
+
+.photo-meta h3 {
+    font-size: 1.1rem;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.photo-meta p {
+    font-size: 0.85rem;
+    color: #6b7280;
+}

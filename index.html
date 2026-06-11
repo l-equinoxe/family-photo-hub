@@ -1,21 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Family Photo Hub</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Home Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <body>
-        <header>
-            <h1>Our Family Photo Arhive</h1>
-            <p>A place for our favorite memories, built step-by-step</p>
-        </header>
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Our Home Hub</h1>
+            <p>Welcome back! Here is our current household status.</p>
+        </div>
+    </header>
 
-        <main>
-            <p>Gallery coming soon...</p>
-        </main>
+    <main class="hub-container">
+        
+        <section class="hub-card bills-card">
+            <div class="card-header">
+                <h2>📋 Bills & Utilities</h2>
+                <span class="badge warning">2 Pending</span>
+            </div>
+            <p class="section-desc">Track and manage monthly shared expenses.</p>
+            
+            <ul class="bill-list">
+                <li class="bill-item unpaid">
+                    <div class="bill-info">
+                        <span class="bill-name">Electricity</span>
+                        <span class="bill-due">Due: June 25</span>
+                    </div>
+                    <span class="bill-amount">15,000 ₸</span>
+                </li>
+                <li class="bill-item unpaid">
+                    <div class="bill-info">
+                        <span class="bill-name">Internet</span>
+                        <span class="bill-due">Due: June 28</span>
+                    </div>
+                    <span class="bill-amount">7,000 ₸</span>
+                </li>
+                <li class="bill-item paid">
+                    <div class="bill-info">
+                        <span class="bill-name">Water & Trash</span>
+                        <span class="bill-due">Paid ✓</span>
+                    </div>
+                    <span class="bill-amount">4,500 ₸</span>
+                </li>
+            </ul>
+        </section>
 
-    </body>
+        <section class="hub-card photo-card">
+            <div class="card-header">
+                <h2>📸 Recent Memories</h2>
+                <span class="badge info">New Upload</span>
+            </div>
+            <p class="section-desc">Latest snapshots from our archive.</p>
+            
+            <div class="photo-wrapper">
+                <img src="https://picsum.photos/800/500" alt="Family archive placeholder">
+                <div class="photo-meta">
+                    <h3>Summer Weekend</h3>
+                    <p>Added June 2026</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
 </html>
